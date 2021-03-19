@@ -3,7 +3,7 @@ const pageSize = 20;
 export const getNews = async (page = 1, query = 'Russia') => {
   try {
     const response = await fetch(
-`https://newscatcher.p.rapidapi.com/v1/search_free?q=Elon%20Musk&page=${page}&lang=ru&page_size=${pageSize}&media=True`,
+`https://newscatcher.p.rapidapi.com/v1/search_free?q=Интерактивные%20обучающие%20технологии&page=${page}&lang=ru&page_size=${pageSize}&media=True`,
   {
         "method": "GET",
         "headers": {

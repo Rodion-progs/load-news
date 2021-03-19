@@ -1,5 +1,5 @@
 const showBackgroundImage = (img) => {
-  return img !== null ? `url('${img}'` : '';
+  return img !== null ? `url('${img}'` : 'linear-gradient(133deg, rgba(255,255,255,1) 0%, rgba(120,86,255,1) 100%);';
 }
 const showReadOrNo = (read) => {
   return read ? 'Прочитанно' : 'Непрочитано';

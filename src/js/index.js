@@ -1,8 +1,6 @@
-"use strict";
-
-import { getNews } from './api/index';
-import { card } from './view/card';
-import { controls } from './view/controls';
+import { getNews } from '~/js/api/index';
+import { card } from '~/js//view/card';
+import { controls } from '~/js//view/controls';
 
 document.addEventListener('DOMContentLoaded', () => {
   const button = document.querySelector('.button_load-more');
@@ -29,7 +27,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
   getNews()
     .then(articlesFromApi => {
-      articlesFromApi.map(article => article.read = readingArticles.some((item) => item === article._id));
+      if (readingArticles.length) {
+        articlesFromApi.map(article => article.read = readingArticles.some((item) => item === article._id));
+      }
+      articles.push(...articlesFromApi);
       button.innerText = `Показать новости (${articles.length})`;
     })
     .catch(() => feedNews.insertAdjacentHTML('beforeend', '<h2>Что- то пошло не так, попробуйте ещё раз</h2>'));
