@@ -29,9 +29,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   getNews()
     .then(articlesFromApi => {
-      articlesFromApi.map(article => article.read = readingArticles.some((item) => item === article.url));
-      articles.push(...articlesFromApi);
-      console.log(articlesFromApi)
+      articlesFromApi.map(article => article.read = readingArticles.some((item) => item === article._id));
       button.innerText = `Показать новости (${articles.length})`;
     })
     .catch(() => feedNews.insertAdjacentHTML('beforeend', '<h2>Что- то пошло не так, попробуйте ещё раз</h2>'));
@@ -40,9 +38,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
   feedNews.addEventListener('click', (event) => {
     const target = event.target;
-    if (target.closest('[data-read-more]')) {
-      const href =target.closest('[data-read-more]').href;
-      readingArticles.push(href);
+    if (target.closest('[data-read-more-id]')) {
+      const id = target.closest('[data-read-more-id]').dataset.readMoreId;
+      readingArticles.push(id);
       localStorage.setItem('ReadingArticle', JSON.stringify(readingArticles));
     } else if (target.closest('[data-more-news]')) {
       page++

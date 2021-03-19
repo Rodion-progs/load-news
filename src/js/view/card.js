@@ -1,5 +1,3 @@
-"use strict";
-
 const showBackgroundImage = (img) => {
   return img !== null ? `url('${img}'` : '';
 }
@@ -7,24 +5,23 @@ const showReadOrNo = (read) => {
   return read ? 'Прочитанно' : 'Непрочитано';
 }
 const localeDate = (date) => {
-  console.log(new Date(date));
   return new Date(date).toLocaleString();
 }
 
 export const card = (article) => {
   return `
     <div class="card">
-        <div class="card__img" style="background-image: ${showBackgroundImage(article.urlToImage)}">
+        <div class="card__img" style="background-image: ${showBackgroundImage(article.media ? article.media : article.media_content)}">
             <div class="card__img-gradient"></div>
         </div>
       <div class="card__body">
         <p>${article.title}</p>
         <p>${article.author ? article.author : ''}</p>  
-        <p>${localeDate(article.publishedAt)}</p>  
+        <p>${localeDate(article.published_date)}</p>  
         <p></p>  
       </div>
       <div class="card__footer">
-        <a href="${article.url}" target="_blank" class="card__read-more" data-read-more>Подробнее</a>
+        <a href="${article.link}" target="_blank" class="card__read-more" data-read-more-id="${article._id}">Подробнее</a>
         <div class="card__read-info">
         ${showReadOrNo(article.read)}
         <svg 
