@@ -1,0 +1,89 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  flex-basis: 100%;
+  background-color: rgb(96, 96, 96);
+  color: #ffffff;
+  margin-bottom: 16px;
+  min-height: 320px;
+  box-sizing: border-box;
+  border-radius: 4px;
+  animation: fade-in 0.3s ease-in;
+  &__img {
+    flex: 1 1 auto;
+    margin-bottom: -30px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+
+  &__img-gradient {
+    height: 100%;
+    background-image: linear-gradient(to top, rgb(96, 96, 96) 0%, rgba(96, 96, 96, 0.88) 11%, rgba(96, 96, 96, 0.75) 17%, rgba(96, 96, 96, 0.46) 30%, rgba(96, 96, 96, 0.3) 38%, rgba(96, 96, 96, 0.2) 45%, rgba(96, 96, 96, 0.11) 50%, rgba(96, 96, 96, 0.05) 54%, rgba(96, 96, 96, 0) 100%)
+  }
+
+  &__icon {
+    margin-left: 10px;
+
+    &_read {
+      fill: #46ff00;
+    }
+
+    &_no-read {
+      fill: #3b3b3b;
+    }
+  }
+
+  &__body {
+    padding: 0 10px 10px;
+  }
+
+  &__footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    padding: 10px;
+  }
+
+  &__read-more {
+    color: rgba(#ffffff, 0.6);
+    cursor: pointer;
+    transition: color 0.22s ease-in;
+    text-decoration: none;
+    text-transform: uppercase;
+    &:link {
+      color: rgba(#ffffff, 0.6);
+    }
+    &:visited {
+      color:rgba(#ffffff, 0.6);
+    }
+    &:hover {
+      color: #ffffff;
+    }
+  }
+  &__read-info {
+    display: flex;
+    align-items: center;
+  }
+}
+@media screen and (min-width: 576px){
+  .card {
+    flex-basis: 49%;
+  }
+}
+@media screen and (min-width: 768px){
+  .card {
+    flex-basis: 32.5%;
+  }
+}
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

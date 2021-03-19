@@ -1,0 +1,16 @@
+.button {
+  padding: 10px 14px;
+  background-color: transparent;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  cursor: pointer;
+  &_primary {
+    background-color: #0961ff;
+    color: #ffffff;
+  }
+}
+
+.controls {
+  text-align: center;
+}
