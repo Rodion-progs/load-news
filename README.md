@@ -3,4 +3,4 @@
 
 ## Description
 
-Just go to the https://rodion-progs.github.io/load-news/
+Just go to the <a href="https://rodion-progs.github.io/load-news/">here/</a>
